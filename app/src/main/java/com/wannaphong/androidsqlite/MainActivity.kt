@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         addbtn.setOnClickListener {
             val dbHelper = DBHelper(this,db_name,null,1)
-            val newTask:Task = Task(TaskEdit.toString())
+            val newTask:Task = Task(TaskEdit.text.toString())
             dbHelper.addTask(newTask)
 
-            Toast.makeText(this, "OK! : Add to DB "+TaskEdit.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "OK! : Add to DB "+TaskEdit.text.toString(),Toast.LENGTH_SHORT).show()
         }
         readbtn.setOnClickListener {
             val dbHelper = DBHelper(this,db_name,null,1)
@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
             data!!.moveToFirst()
 
             showtask.text = ""
-            showtask.append(data.getString(data.getColumnIndex("taskname")))
+            showtask.append(data.getString(data.getColumnIndex("name")))
 
             while(data.moveToNext()){
                 showtask.append("\n")
-                showtask.append(data.getString(data.getColumnIndex("taskname")))
+                showtask.append(data.getString(data.getColumnIndex("name")))
             }
             data.close()
         }
