@@ -18,7 +18,10 @@ class DBHelper(
     val conlumn_name = "name"
 
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val CREATE_TABLE = "CREATE TABLE "+db_name+" (" +
+                conlumn_id+" INTEGER PRIMARY KEY AUTOINCREMENT," +
+                conlumn_name+" TEXT" +
+                ")"
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
