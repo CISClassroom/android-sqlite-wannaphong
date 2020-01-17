@@ -1,6 +1,8 @@
 package com.wannaphong.androidsqlite
 
+import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -17,11 +19,18 @@ class DBHelper(
     val conlumn_id = "id"
     val conlumn_name = "name"
 
-    fun addTask(){
+    fun addTask(newTask:Task){
+        val values = ContentValues();
+        values.put(conlumn_name,newTask.taskname)
 
+        val db = this.writableDatabase
+
+        db.insert(TABLE,null,values)
+        db.close()
     }
-    fun getAllTask(){
-
+    fun getAllTask(): Cursor? {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM "+TABLE,null)
     }
     override fun onCreate(db: SQLiteDatabase) {
         val CREATE_TABLE = "CREATE TABLE "+db_name+" (" +

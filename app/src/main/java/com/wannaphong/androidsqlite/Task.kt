@@ -1,7 +1,7 @@
 package com.wannaphong.androidsqlite
 
 class Task {
-    var id,
+    var id:Int = 0
     var taskname:String = ""
 
     constructor(taskname:String){
