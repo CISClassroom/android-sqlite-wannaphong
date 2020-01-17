@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/TaskEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -16,25 +16,22 @@
         android:text="Name" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add to DB" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/readbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Read" />
 
-    <EditText
-        android:id="@+id/editText2"
+    <TextView
+        android:id="@+id/showtask"
         android:layout_width="match_parent"
-        android:layout_height="561dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Text"
-        android:inputType="textMultiLine" />
+        android:layout_height="match_parent"
+        android:text="TextView" />
 
 
 </android.widget.LinearLayout>

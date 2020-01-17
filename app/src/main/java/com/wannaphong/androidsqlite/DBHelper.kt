@@ -6,13 +6,12 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-const val db_version:Int = 1
 class DBHelper(
     context: Context?,
     name: String?,
     factory: SQLiteDatabase.CursorFactory?,
     version: Int
-) : SQLiteOpenHelper(context, name, factory, db_version) {
+) : SQLiteOpenHelper(context, name, factory, version) {
 
     val db_name = "todo.db"
     val TABLE = "task"
@@ -33,7 +32,7 @@ class DBHelper(
         return db.rawQuery("SELECT * FROM "+TABLE,null)
     }
     override fun onCreate(db: SQLiteDatabase) {
-        val CREATE_TABLE = "CREATE TABLE "+db_name+" (" +
+        val CREATE_TABLE = "CREATE TABLE "+TABLE+" (" +
                 conlumn_id+" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 conlumn_name+" TEXT" +
                 ")"
