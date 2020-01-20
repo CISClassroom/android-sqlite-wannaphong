@@ -35,5 +35,15 @@ class MainActivity : AppCompatActivity() {
             }while(data.moveToNext())
             data.close()
         }
+        delbtn.setOnClickListener {
+            val dbHelper = DBHelper(this,db_name,null,1)
+            val id = edittext.text.toString().toInt()
+            val result = dbHelper.deleteTask(id).toString().toBoolean()
+            if(result)
+                Toast.makeText(this, "OK! : Fall Del is "+result.toString(),Toast.LENGTH_SHORT).show()
+            else{
+                Toast.makeText(this, "OK! : Del is "+result.toString(),Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
