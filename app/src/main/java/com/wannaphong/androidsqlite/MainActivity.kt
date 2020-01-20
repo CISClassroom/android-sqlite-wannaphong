@@ -27,12 +27,12 @@ class MainActivity : AppCompatActivity() {
             data!!.moveToFirst()
 
             showtask.text = ""
-            showtask.append(data.getString(data.getColumnIndex("name")))
-
-            while(data.moveToNext()){
+            do{
+                val name = data.getString(data.getColumnIndex("name"))
+                val id = data.getString(data.getColumnIndex("id"))
+                showtask.append(id+" "+name)
                 showtask.append("\n")
-                showtask.append(data.getString(data.getColumnIndex("name")))
-            }
+            }while(data.moveToNext())
             data.close()
         }
     }
