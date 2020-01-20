@@ -18,11 +18,20 @@ class DBHelper(
     val conlumn_id = "id"
     val conlumn_name = "name"
 
-    fun  updateTask(data:Task){
+    fun updateTask(data:Task): Int {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(conlumn_name,data.taskname)
-        db.update(TABLE,contentValues,conlumn_id+" = "+data.id,null)
+        val result = db.update(TABLE,contentValues,conlumn_id+" = "+data.id,null)
+        db.close()
+        return result
+    }
+
+    fun deleteTask(id:Int): Int {
+        val db = this.writableDatabase
+        val result = db.delete(TABLE,conlumn_id+" = "+ id,null)
+        db.close()
+        return result
     }
 
     fun addTask(newTask:Task){
