@@ -30,8 +30,27 @@
     <TextView
         android:id="@+id/showtask"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="284dp"
         android:text="TextView" />
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/editbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EDIT" />
+
+    <Button
+        android:id="@+id/delbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DELETE" />
 
 
 </android.widget.LinearLayout>
